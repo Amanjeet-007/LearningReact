@@ -1,5 +1,4 @@
-import { useState } from 'react';
-// import '../styles/Todo.css';
+import { useEffect, useState} from 'react';
 
 export default function Todo() {
   const [input, setInput] = useState('');
@@ -31,24 +30,24 @@ export default function Todo() {
   function AllItems() {
     return (
       tasks.map((task) => (
-        <div className={task.status=="Done"?"bg-green-500 box w-min flex flex-col p-4 m-3 border-red-800 border-2 rounded-md  ":"bg-red-500 box w-min flex flex-col p-4 m-3 border-red-800 border-2 rounded-md  "} key={task.id} >
+        <div className={"box w-min flex flex-col p-4 m-3 border-red-800 border-2 rounded-md  "} key={task.id} style={{backgroundColor:task.status?"lightgreen" : "lightcoral"}} >
           <div>{task.task}</div>
           <div>{task.date}</div>
           <div>{task.status ? "Done" : "Pending"}</div>
-          <button onClick={() => markAsDone(task.id)}>Done</button>
+          <button onClick={() => {markAsDone(task.id)}}>Done</button>
         </div>
       ))
     );
   }
 
+ 
   // Mark a task as done
   function markAsDone(id) {
-    const updatedTasks = tasks.map(task =>
+    const updatedTasks = tasks.map((task) =>
       task.id === id ? { ...task, status: true } : task
     );
-    setTasks(updatedTasks); // Update the state
+    setTasks(updatedTasks);
   }
-
   return (
     <>
       <div id="top" className='bg-blue-700 text-white text-center w-min px-16 border-black border-2'>
