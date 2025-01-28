@@ -3,11 +3,21 @@ import { useEffect, useState} from 'react';
 export default function Todo() {
   const [input, setInput] = useState('');
   const [tasks, setTasks] = useState([]);
+  const [comp,setComp] = useState("off")
+  const [Pen,setPen] = useState("")
 
   // Handle input change
   function handleInput(event) {
     setInput(event.target.value);
   }
+function handleComp(event){
+  if(event){
+    console.log(event)
+  }
+}
+// setInterval(() => {
+//   console.log("now",comp)
+// }, 5000);
 
   // Handle form submission
   function submit() {
@@ -64,7 +74,12 @@ export default function Todo() {
           <button type="submit" className='px-5 py-1 mx-2 border-2 border-black m-3' onClick={submit}>Add</button>
         </div>
       </div>
-      <div className="filter"></div>
+      <div className="filter w-[350px] h-[40px] mt-1 bg-gray-500  flex items-center p-2">
+        <label htmlFor="complite">Complite</label> 
+        <input type="checkbox" name="complite" id="complite" className='bg-red mr-3 ml-1 cursor-pointer' onChange={handleComp} />
+        <label htmlFor="pending">Pending</label>
+        <input type="checkbox" name='pending' id='pending' className='bg-red mr-3 ml-1 cursor-pointer' />
+      </div>
       <div className="w-3/5 bg-gray-400 flex flex-wrap h-min my-4 border-2 border-gray-500">
         <AllItems />
       </div>
