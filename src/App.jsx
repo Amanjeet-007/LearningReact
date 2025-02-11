@@ -1,6 +1,6 @@
 import './App.css'
-// import Todo from './components/Todo'
-import Test from './components/Test'
+import Todo from './components/Todo'
+// import Test from './components/Test'
 // import Color from './components/color'   <Color/>
 // import Counter from './components/counter'  <Counter/>
 // import Typing from './components/Typing' <Typing para={" helllo"}/>
@@ -8,8 +8,8 @@ import Test from './components/Test'
 function App() {
   return (
     <main>
-      <Test/>
-      {/* <Todo/> */}
+      {/* <Test/> */}
+      <Todo/>
     </main>
   )
 }
